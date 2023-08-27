@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="SneakerDetailsFragment"
+            type="com.otta.sneakerdetails.presentation.SneakerDetailsFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.otta.sneakerdetails.presentation.SneakerDetailsViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F1F1F1">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="15dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="#00ffffff"
+                        android:onClick="@{() -> SneakerDetailsFragment.closeSelf()}"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_back" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="Details"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                        android:textColor="@color/sneakership_orange"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center|left"
+                        android:src="@drawable/ic_back"
+                        android:tint="#CFCFCF" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center|right"
+                        android:src="@drawable/ic_next"
+                        android:tint="#CFCFCF" />
+
+                    <FrameLayout
+                        android:layout_width="260dp"
+                        android:layout_height="260dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="40dp"
+                        android:layout_marginBottom="40dp">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:alpha="0.3"
+                            android:background="@drawable/circle_drawable" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="35dp"
+                            android:alpha="0.4"
+                            android:background="@drawable/circle_drawable" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="30dp"
+                            android:src="@drawable/ic_sneaker" />
+
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="200dp"
+                        android:layout_height="5dp"
+                        android:layout_gravity="center|bottom"
+                        android:weightSum="3">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/rectangle_rounded_corner"
+                            android:backgroundTint="#272727" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/rectangle_rounded_corner"
+                            android:backgroundTint="#8DC1C1C1" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/rectangle_rounded_corner"
+                            android:backgroundTint="#8DC1C1C1" />
+                    </LinearLayout>
+
+                </FrameLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="-40dp"
+                    android:minHeight="300dp"
+                    app:cardBackgroundColor="#fff"
+                    app:cardCornerRadius="40dp"
+                    app:cardElevation="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="100dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/sneakerName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginRight="30dp"
+                            android:hint="Name"
+                            android:text="@{viewModel.sneaker.name}"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                            android:textColor="#2B2B2B"
+                            android:textSize="26dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/sneakerAbout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="30dp"
+                            android:hint="Details"
+                            android:text="@{viewModel.sneaker.title}"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                            android:textColor="#A8A8A8"
+                            android:textSize="16dp" />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginRight="25dp"
+                            android:weightSum="4">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center|left"
+                                android:layout_weight="1"
+                                android:text="@string/size"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                android:textColor="#979797"
+                                android:textSize="18dp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center|right"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <FrameLayout
+                                    android:layout_width="65dp"
+                                    android:layout_height="35dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/rectangle_rounded_corner_stroke">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:text="7"
+                                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                        android:textColor="@color/sneakership_orange"
+                                        android:textSize="15dp" />
+                                </FrameLayout>
+
+                                <FrameLayout
+                                    android:layout_width="65dp"
+                                    android:layout_height="35dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/rectangle_rounded_corner">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:text="8"
+                                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                        android:textColor="#FFFFFF"
+                                        android:textSize="15dp" />
+                                </FrameLayout>
+
+                                <FrameLayout
+                                    android:layout_width="65dp"
+                                    android:layout_height="35dp"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/rectangle_rounded_corner_stroke">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:text="9"
+                                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                        android:textColor="@color/sneakership_orange"
+                                        android:textSize="15dp" />
+                                </FrameLayout>
+
+                            </LinearLayout>
+
+
+                        </FrameLayout>
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="25dp"
+                            android:weightSum="4">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center|left"
+                                android:layout_weight="1"
+                                android:text="@string/color"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                android:textColor="#979797"
+                                android:textSize="18dp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center|right"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <View
+                                    android:layout_width="65dp"
+                                    android:layout_height="35dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/pill"
+                                    android:backgroundTint="#4BF44336"></View>
+
+                                <FrameLayout
+                                    android:layout_width="65dp"
+                                    android:layout_height="35dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/pill"
+                                    android:backgroundTint="#3F6AB5">
+
+
+                                    <ImageView
+                                        android:layout_width="18dp"
+                                        android:layout_height="18dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/tick" />
+
+                                </FrameLayout>
+
+                                <View
+                                    android:layout_width="65dp"
+                                    android:layout_height="35dp"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/pill"
+                                    android:backgroundTint="#D589D4DD"></View>
+
+                            </LinearLayout>
+                        </FrameLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2px"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="25dp"
+                            android:layout_marginRight="20dp"
+                            android:background="#2F323232" />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginRight="25dp"
+                            android:weightSum="4">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center|left"
+                                    android:layout_weight="1"
+                                    android:text="@string/price"
+                                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                    android:textColor="#9E9E9E"
+                                    android:textSize="14dp" />
+
+                                <TextView
+                                    android:id="@+id/sneakerPrice"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center|left"
+                                    android:layout_marginTop="3dp"
+                                    android:layout_weight="1"
+                                    android:hint="$0"
+                                    android:text="@{'$' + String.valueOf(viewModel.sneaker.retailPrice)}"
+                                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                    android:textColor="@color/sneakership_orange"
+                                    android:textSize="25dp" />
+
+                            </LinearLayout>
+
+
+                            <FrameLayout
+                                android:id="@+id/addToCartButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="55dp"
+                                android:layout_gravity="center|right"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginBottom="2dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/rectangle_rounded_corner"
+                                android:minWidth="160dp"
+                                android:onClick="@{() -> viewModel.performAdToCartAction()}">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="25dp"
+                                    android:layout_marginRight="25dp"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:id="@+id/add_to_cart_button_icon"
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_gravity="center"
+                                        android:layout_marginRight="10dp"
+                                        android:background="@drawable/ic_cart"
+                                        android:backgroundTint="#fff" />
+
+                                    <TextView
+                                        android:id="@+id/add_to_cart_button_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:text="@string/add_to_cart"
+                                        android:textAllCaps="true"
+                                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                        android:textColor="#FFFFFF"
+                                        android:textSize="15dp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                            </FrameLayout>
+                        </FrameLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+</layout>

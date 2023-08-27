@@ -1,0 +1,79 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="SearchFragment"
+            type="com.otta.sneakerslist.presentation.SearchFragment" />
+
+        <variable
+            name="viewmodel"
+            type="com.otta.sneakerslist.presentation.SearchViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.otta.search.presentation.SearchFragment">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center|left"
+                android:background="#00ffffff"
+                android:onClick="@{() -> SearchFragment.closeSelf()}"
+                android:padding="5dp"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="@string/search"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                android:textColor="@color/sneakership_orange"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+
+        <EditText
+            android:id="@+id/searchField"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/rectangle_rounded_corner"
+            android:backgroundTint="#E8E8E8"
+            android:hint="@string/search"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColor="#2E2E2E"
+            android:textColorHint="#B8B8B8"
+            android:textSize="20dp" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/searchRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:fadeScrollbars="true"
+            android:fadingEdge="vertical"
+            android:fadingEdgeLength="20dp"
+            android:requiresFadingEdge="vertical" />
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sneakers_list_navigation_graph"
+    app:startDestination="@id/sneakersListFragment">
+
+    <fragment
+        android:id="@+id/sneakersListFragment"
+        android:name="com.otta.sneakerslist.presentation.SneakersListFragment"
+        android:label="fragment_sneakers_list"
+        tools:layout="@layout/fragment_sneakers_list" >
+        <action
+            android:id="@+id/action_sneakersListFragment_to_sneakerDetailsFragment"
+            app:destination="@id/sneaker_details_navigation_graph"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_sneakersListFragment_to_searchFragment2"
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+
+    <include app:graph="@navigation/sneaker_details_navigation_graph" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.otta.sneakerslist.presentation.SearchFragment"
+        android:label="SearchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_sneaker_details_navigation_graph"
+            app:destination="@id/sneaker_details_navigation_graph"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+</navigation>

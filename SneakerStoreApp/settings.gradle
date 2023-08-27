@@ -1,8 +1,8 @@
 pluginManagement {
     repositories {
+        gradlePluginPortal()
         google()
         mavenCentral()
-        gradlePluginPortal()
     }
 }
 dependencyResolutionManagement {
@@ -12,6 +12,10 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-
-rootProject.name = "SneakerStore"
+rootProject.name = "Sneakership"
 include ':app'
+include ':sneakerDetails'
+include ':sneakersList'
+include ':data'
+include ':common'
+include ':cart'
